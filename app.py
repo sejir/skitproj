@@ -50,4 +50,5 @@ with col2:
         features = pd.DataFrame([[total_bill, sex, smoker, day, time, size]],
                                columns=["total_bill", "sex", "smoker", "day", "time", "size"])
         prediction = model_class.predict(features)
-        st.write(f"### Predicted Tip Category: {prediction[0]}")
+        category = 'Low Tip' if prediction[0] == 0 else ('Medium Tip' if prediction[0] == 1 else 'High Tip')
+        st.write(f"### Predicted Tip Category: {category}")
